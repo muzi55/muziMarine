@@ -22,11 +22,7 @@ function Home() {
       </Button>
 
       <div className="list-section">
-        <ul className="list-box">
-          {data.map((el) => (
-            <List key={el.id} data={el} />
-          ))}
-        </ul>
+        <ul className="list-box">{data ? data.map((el) => <List key={el.id} data={el} />) : null}</ul>
       </div>
     </>
   );
