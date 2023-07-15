@@ -6,7 +6,6 @@ const getpost = async () => {
 };
 
 const addpost = async (newpost) => {
-  console.log(newpost);
   await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, newpost);
 };
 

@@ -6,6 +6,7 @@ import img from "./../../img/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getpost } from "../../api/posts";
+import List from "../../components/List/List";
 function Home() {
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ function Home() {
   if (isLoading) return "dasd";
   if (isError) return "dasd";
   // console.log(data[0].images[0]);
+  // console.log(data);
 
   return (
     <>
@@ -20,17 +22,12 @@ function Home() {
       <Button onClick={() => navigate("/write")} size="large" className="writeBtn">
         힘 보내기
       </Button>
-      <img src={data[0]?.images[0]} alt="" />
-      <div>
+
+      <div className="list-section">
         <ul className="list-box">
-          <li className="list">
-            <div className="img-box">
-              <img src={img} alt="#" />
-            </div>
-            <div className="text-box">
-              <p>텍스트 입니다.</p>
-            </div>
-          </li>
+          {data.map((el) => (
+            <List key={el.id} data={el} />
+          ))}
         </ul>
       </div>
     </>
