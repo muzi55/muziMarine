@@ -56,7 +56,6 @@ function Write() {
       images: inputImgs,
       content,
     };
-    console.log(newPost);
     mutationAdd.mutate(newPost);
     alert("게시글 입력완료야 !");
     navigate("/");

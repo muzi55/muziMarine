@@ -14,7 +14,6 @@ function Write() {
   const { title, pass, content } = inputs;
   const onChangeInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setInputs({
       ...inputs,
       [name]: value,
@@ -49,7 +48,6 @@ function Write() {
       images: inputImgs,
       content,
     };
-    // console.log(newPost);
     mutationAdd.mutate(newPost);
   };
 

@@ -13,8 +13,6 @@ function Home() {
   const { isLoading, isError, data } = useQuery("posts", getpost);
   if (isLoading) return "dasd";
   if (isError) return "dasd";
-  // console.log(data[0].images[0]);
-  // console.log(data);
 
   return (
     <>

@@ -17,8 +17,14 @@ function Detail() {
 
   const onClickDelBtn = () => {
     const check = window.prompt("비밀번호를 여기에다써");
-    if (+check === +pass) return mutationDelete.mutate(id);
+    if (+check === +pass) {
+      mutationDelete.mutate(id);
+      navigate("/");
+    } else {
+      alert("비밀번호 가 틀렸어 !");
+    }
   };
+
   return (
     <>
       <Header size="small" />
@@ -30,7 +36,6 @@ function Detail() {
         <ul className="img-listbox">
           {images &&
             images.map((el, index) => {
-              console.log(el);
               return <li key={el + index}>{el ? <img src={el} alt="사진" /> : null}</li>;
             })}
         </ul>

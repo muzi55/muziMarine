@@ -39,7 +39,6 @@ function Edit() {
   }, []);
 
   const inputRef = useRef(null);
-  const queryClient = useQueryClient();
   //   수정하기
   const mutationUpdatePost = useMutation(updatepost);
   const onClickEditBtn = () => {
@@ -50,8 +49,8 @@ function Edit() {
       content,
       id: location.state.id,
     };
-    // console.log(updatePost);
     mutationUpdatePost.mutate(updatePost);
+    navigate("/");
   };
   return (
     <>
@@ -62,7 +61,7 @@ function Edit() {
             <label htmlFor="title" className="hidden">
               이름
             </label>
-            <input name="title" id="title" value={title} onChange={(e) => onChangeInput(e)} type="text" placeholder="이름" />
+            <input name="title" id="title" value={title} disabled onChange={(e) => onChangeInput(e)} type="text" placeholder="이름" />
             <label htmlFor="password" className="hidden">
               비밀번호
             </label>

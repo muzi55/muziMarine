@@ -10,12 +10,10 @@ const addpost = async (newpost) => {
 };
 
 const deletepost = async (postId) => {
-  console.log(postId);
   await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts/${postId}`);
 };
 
 const updatepost = async (post) => {
-  console.log(post);
   await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${post.id}`, post);
 };
 
