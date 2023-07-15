@@ -1,0 +1,87 @@
+$blue: #228be6; // 변수선언은 $ 로 합니다.!
+$gray : #495057;
+$pink : #f06595;
+$white: #ffffff;
+
+// 배경색 추가, 아웃라인
+@mixin button-color($color){
+    background: $color;
+        &:hover {
+            background: darken($color: $color, $amount: 10%);
+        }
+        &:active {
+            background: darken($color: $color, $amount: 20%);
+        }
+
+    &.outline {
+        color:$color;
+        background: none;
+        border: 1px solid $color;
+        &:hover {
+            background: $color;
+            color:#fff;
+        }
+    }
+}
+
+
+
+.Button {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    color:#000;
+    font-weight: bold;
+    outline: none;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #000;
+    padding: 0 1rem;
+    transition: all .3s;
+    &.large{
+        width: 260px;
+        height: 60px;
+        font-size: 1.25rem;
+    }
+    // 버튼에 medium 이 같이 사용된경우
+    &.medium{
+        height: 2.25rem;
+        font-size: 1rem;
+    }
+    &.small{
+        height: 1.75rem;
+        font-size: 0.875rem;
+    }
+
+    &.blue {
+        @include button-color($blue)
+    }
+    &.pink {
+        @include button-color($pink)
+    }
+    &.gray {
+        @include button-color($gray)
+    }
+    &.white{
+        @include button-color($white)
+    }
+
+
+    // if => fullWidth 가 있다면?
+    &.fullWidth {
+        width: 100%;
+        justify-content: center;
+        & + & {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
+    }
+}
+
+// .Button + .Button{
+//     margin-left: 1rem;
+// }
