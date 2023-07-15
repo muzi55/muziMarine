@@ -1,1 +1,5 @@
+
+
+# .prettierignore 파일 내용
+db.json
 *.json

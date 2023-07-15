@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./Write.scss";
 import Header from "../../components/Header/Header";
 import { useMutation, useQueryClient } from "react-query";
@@ -14,19 +14,21 @@ function Write() {
   });
 
   const { title, pass, content } = inputs;
-  const onChangeInput = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
+  const onChangeInput = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setInputs({
+        ...inputs,
+        [name]: value,
+      });
+    },
+    [inputs]
+  );
 
   const inputRef = useRef(null);
   const queryClient = useQueryClient();
 
-  const onChangeImgInput = (e) => {
+  const onChangeImgInput = useCallback((e) => {
     if (e.currentTarget.files?.[0]) {
       const file = e.currentTarget.files[0];
 
@@ -37,7 +39,7 @@ function Write() {
         setInputImgs((prev) => [...prev, event.target?.result]);
       };
     }
-  };
+  }, []);
 
   const mutationAdd = useMutation(addpost, {
     onSuccess: () => {
@@ -80,14 +82,13 @@ function Write() {
           <div className="img-imput" onClick={() => inputRef.current?.click()}>
             +
           </div>
-          {console.log(inputImgs)}
-          {/* {inputImgs.map(el=>{<></>})} */}
+
           <div className="priview-imgbox">
             {inputImgs &&
-              inputImgs.map((el) => {
+              inputImgs.map((el, index) => {
                 return (
-                  <div className="preview-box">
-                    <img className="imgs-preview" src={el} />
+                  <div key={el + index} className="preview-box">
+                    <img className="imgs-preview" src={el} alt="리스트아이템 사진입니다." />
                   </div>
                 );
               })}
