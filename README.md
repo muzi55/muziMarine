@@ -9,9 +9,10 @@
 - 글 수정,
 - 글 삭제
 
-## 예제
+## 미리보기
+- [MUZI MARINE](https://muzi-marine.vercel.app/?vercelToolbarCode=GYaxXp-h1CsMOp3)
+- ![muzipriveiw](https://github.com/muzi55/bmi/assets/132406946/c18cdb5e-c02a-4636-82bc-fcee2d8bc591)
 
-img
 
 ## 설치 가이드
 
