@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getpost } from "../../api/posts";
 import List from "../../components/List/List";
+import Loading from "../../components/Loading/Loading";
 function Home() {
   const navigate = useNavigate();
 
   const { isLoading, isError, data } = useQuery("posts", getpost);
-  if (isLoading) return "dasd";
-  if (isError) return "dasd";
+  if (isLoading) return <Loading />;
+  if (isError) return <Loading />;
 
   return (
     <>
@@ -22,11 +23,7 @@ function Home() {
       </Button>
 
       <div className="list-section">
-        <ul className="list-box">
-          {data.map((el) => (
-            <List key={el.id} data={el} />
-          ))}
-        </ul>
+        <ul className="list-box">{data ? data.map((el) => <List key={el.id} data={el} />) : null}</ul>
       </div>
     </>
   );
