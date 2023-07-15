@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getpost } from "../../api/posts";
 import List from "../../components/List/List";
+import Loading from "../../components/Loading/Loading";
 function Home() {
   const navigate = useNavigate();
 
   const { isLoading, isError, data } = useQuery("posts", getpost);
-  if (isLoading) return "dasd";
-  if (isError) return "dasd";
+  if (isLoading) return <Loading />;
+  if (isError) return <Loading />;
 
   return (
     <>
