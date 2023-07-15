@@ -1,11 +1,12 @@
 import React from "react";
 import "./Header.scss";
+import classname from "classname";
 import img from "./../../img/logo.svg";
-function Header() {
+function Header({ size }) {
   return (
     <>
       <header>
-        <img className="logo" src={img} alt="고래모양 로고" />
+        <img className={classname("logo", size)} src={img} alt="고래모양 로고" />
         <h1 className="hidden">무지 마린</h1>
         <p>
           불쌍하고 말 못하는 해양생물에게
