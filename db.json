@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "title": "",
+      "pass": "",
+      "images": [
+        null
+      ],
+      "content": "",
+      "id": 1
+    },
+    {
+      "title": "",
+      "pass": "",
+      "images": [
+        null
+      ],
+      "content": "",
+      "id": 2
+    }
+  ]
+}
